@@ -6,9 +6,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from 'react-router-dom';
-// *** import { useState } from 'react';
+import { useState } from 'react';
+import { client } from './services/client';
 
 //services
 // **** import { logout } from './services/fetch-utils';
@@ -21,6 +23,8 @@ import CreatePage from './components/CreatePage';
 import UpdatePage from './components/UpdatePage';
 
 export default function App() {
+  const [user, setUser] = useState(client.auth.user());
+
   return (
     <Router>
       <header>
@@ -39,7 +43,11 @@ export default function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route exact path='/'>
-            <HomePage />
+            {
+              !user 
+                ? <HomePage setUser={setUser} />
+                : <Redirect to="/list" />
+            }
           </Route>
           <Route exact path='/list'>
             <ListPage />

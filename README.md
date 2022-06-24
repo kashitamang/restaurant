@@ -9,16 +9,16 @@ Open the demo code and answer that one question about that one step.
 Close the demo code and return to step 4 with new knowledge.
 
 #Plan#
-Make fake Page components for each page
-Set up react router for the fake pages
-Set up my supabase table and adding Cred to the .env
-user_id has default value of auth.uid()
+✅ Make fake Page components for each page
+✅ Set up react router for the fake pages
+✅ Set up my supabase table and adding Cred to the .env
+✅ user_id has default value of auth.uid()
 Set up RLS to protect rows so you can only see rows YOU CREATED
-use the delete template as a starting point then choose ALL
+✅ use the delete template as a starting point then choose ALL
 
 #"Auth" page#
-Set up the Auth Page forms
-Set up the submit handler to sign in/sign up
+✅ Set up the Auth Page forms
+✅Set up the submit handler to sign in/sign up
 write a signUp function in our fetch utils that takes email and password as arguments
 pass email and password from state to signUp
 log out user to double check it worked
