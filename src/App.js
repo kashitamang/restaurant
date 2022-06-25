@@ -11,6 +11,7 @@ import {
 } from 'react-router-dom';
 import { useState } from 'react';
 import { client } from './services/client';
+import { logout } from './services/fetch-utils';
 
 //services
 // **** import { logout } from './services/fetch-utils';
@@ -25,6 +26,11 @@ import UpdatePage from './components/UpdatePage';
 export default function App() {
   const [user, setUser] = useState(client.auth.user());
 
+  async function handleLogoutClick() {
+    await logout();
+    setUser('');
+  }
+
   return (
     <Router>
       <header>
@@ -36,7 +42,7 @@ export default function App() {
             <li>
               <Link to="/create">Create Page</Link>
             </li>
-            <button to="/users">Logout</button>
+            <button onClick={handleLogoutClick}>Logout</button>
           </ul>
         </nav>
         {/* A <Switch> looks through its children <Route>s and

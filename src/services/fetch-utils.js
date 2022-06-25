@@ -46,7 +46,7 @@ export async function signIn(email, password) {
 
 //logs user out 
 export async function logout() {
-
+  const { error } = await client.auth.signOut();
 }
 
 
