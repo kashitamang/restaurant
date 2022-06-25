@@ -1,4 +1,5 @@
 import { client } from './client';
+// import { erorr } from './client';
 
 //gets data from supabase 
 export async function getMissedConnections() {
@@ -51,22 +52,27 @@ export async function logout() {
 
 
 //create connection 
-export async function CreateMissedConnection() {
+export async function createConnection(missedConnection) {
+  const { data, error } = await client
+    .from('missed_connections')
+    .insert(missedConnection)
+    .single();
 
+  return data;
 }
 
 //updates connection
-export async function updateMissedConnection() {
+export async function updateConnection() {
 
 }
 
 //delete connection 
-export async function deleteMissedConnection() {
+export async function deleteConnection() {
 
 }
 
 //gets connection by id from supabase 
-export async function getMissedConnectionById() {
+export async function getConnectionById() {
 
 }
 
