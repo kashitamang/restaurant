@@ -50,7 +50,11 @@ export default function App() {
             }
           </Route>
           <Route exact path='/list'>
-            <ListPage />
+            {
+              !user 
+                ? <ListPage setUser={setUser} />
+                : <Redirect to="/list" />
+            }
           </Route>
           <Route exact path='/create'>
             <CreatePage />

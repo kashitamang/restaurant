@@ -18,12 +18,13 @@ Set up RLS to protect rows so you can only see rows YOU CREATED
 
 #"Auth" page#
 ✅ Set up the Auth Page forms
-✅Set up the submit handler to sign in/sign up
+✅ Set up the submit handler to sign in/sign up
 write a signUp function in our fetch utils that takes email and password as arguments
 pass email and password from state to signUp
 log out user to double check it worked
 protect our routes: if you are signed in, you shouldn't be allowed in the auth page. it should send you to the list page. Use a ternery in App.js. If there is a user in state, show the list page. If there is no user, show the auth page. The default state of user is client.auth.user(). That way if the user navigates to another page, losing state, we don't kick them back to auth when they return.
 we will put the user in App.js state. However, that data lives in a child (AuthPage). We need to pass setUser down to the authpage so that it can set parent state.
+
 We also add a logout button that conditionally renders in the header if there is a user in state.
 
 #"Create" page#
