@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.delete-button {
+  color: red;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+body nav ul .link {
+  text-decoration: none;
+  color: black;
+}

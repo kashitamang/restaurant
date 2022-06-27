@@ -35,13 +35,14 @@ in our submit handler, call create book, clear out the form, redirect the user t
 
 #"List page#
 ✅ Make state for our data
-Fetch our data in a use effect
-map over the data in our JSX
-Render a link to detail page for each item in the array
+✅ Fetch our data in a use effect
+✅ map over the data in our JSX
+✅ Render a link to detail page for each item in the array
 
 #"Update" Page#
-Works just like the create page with three differences: update instead of create, add a delete button, and hydrate the form with pre-filled info
-First, let's fetch the book. Get the id from the URL, make a getBookById function in fetch-utils, and grab the book on load in a useEffect
-inject the book into state. Since the inputs are controlled, this will also update the inputs.
-Write an updateBook function, in fetch-utils and call it (with id and book object) in UpdatePage.js on click
-add a delete function in fetch-utils and call it on click in the UpdatePage
+✅  Works just like the create page with three differences: update instead of create, add a delete button, and hydrate the form with pre-filled info
+✅  First, let's fetch the book. Get the id from the URL, make a getBookById function in fetch-utils, and 
+✅ grab the book on load in a useEffect
+✅ inject the book into state. Since the inputs are controlled, this will also update the inputs.
+✅ Write an updateBook function, in fetch-utils and call it (with id and book object) in UpdatePage.js on click
+✅ add a delete function in fetch-utils and call it on click in the UpdatePage

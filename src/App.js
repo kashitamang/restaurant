@@ -36,10 +36,10 @@ export default function App() {
       <header>
         <nav>
           <ul>
-            <li>
+            <li className="link">
               <Link to="/list">List Page</Link>
             </li>
-            <li>
+            <li className="link">
               <Link to="/create">Create Page</Link>
             </li>
             <button onClick={handleLogoutClick}>Logout</button>
