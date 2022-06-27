@@ -35,6 +35,7 @@ export default function App() {
     <Router>
       <header>
         <nav>
+          <h1>Missed Connections</h1>
           <ul>
             <li className="link">
               <Link to="/list">List Page</Link>
