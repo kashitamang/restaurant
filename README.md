@@ -28,13 +28,13 @@ we will put the user in App.js state. However, that data lives in a child (AuthP
 ✅ We also add a logout button that conditionally renders in the header if there is a user in state.
 
 #"Create" page#
-Make a form with a title, author, value, onChange, etc
-Make a submit handler and log out the title and author just to confirm we can access form values
-Make a createBook function in fetch-utils. it takes in a book object: { title, author }
+✅ Make a form with a title, author, value, onChange, etc
+✅ Make a submit handler and log out the title and author just to confirm we can access form values
+✅ Make a createBook function in fetch-utils. it takes in a book object: { title, author }
 in our submit handler, call create book, clear out the form, redirect the user to the books page
 
 #"List page#
-Make state for our data
+✅ Make state for our data
 Fetch our data in a use effect
 map over the data in our JSX
 Render a link to detail page for each item in the array

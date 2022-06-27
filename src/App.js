@@ -48,24 +48,28 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route exact path='/'>
+          <Route exact path="/">
             {
               !user 
                 ? <HomePage setUser={setUser} />
                 : <Redirect to="/list" />
             }
           </Route>
-          <Route exact path='/list'>
+          <Route exact path="/list">
             {
-              !user 
-                ? <ListPage setUser={setUser} />
-                : <Redirect to="/list" />
+              user 
+                ? <ListPage />
+                : <Redirect to="/" />
             }
           </Route>
-          <Route exact path='/create'>
-            <CreatePage />
+          <Route exact path="/create">
+            {
+              !user 
+                ? <Redirect to="/" />
+                : <CreatePage />
+            }
           </Route>
-          <Route exact path='/update/:id'>
+          <Route exact path="/update/:id">
             <UpdatePage />
           </Route>
         </Switch>

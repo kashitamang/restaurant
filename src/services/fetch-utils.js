@@ -1,8 +1,12 @@
 import { client } from './client';
-// import { erorr } from './client';
 
 //gets data from supabase 
 export async function getMissedConnections() {
+  const { data } = await client
+    .from('missed_connections')
+    .select('*');
+
+  return data;
 
 }
 

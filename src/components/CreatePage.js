@@ -11,10 +11,13 @@ export default function CreatePage() {
   async function handleSubmit(e){
     e.preventDefault();
 
-    const missedConnection = await createConnection({
+    await createConnection({
       title: title,
       message: message,
     });
+    // console.log(missedConnection);
+    setTitle('');
+    setMessage('');
     
     push('/list');
 
