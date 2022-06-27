@@ -1,25 +1,80 @@
-import logo from './logo.svg';
+//styles
 import './App.css';
+//libraries
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect
+} from 'react-router-dom';
+import { useState } from 'react';
+import { client } from './services/client';
+import { logout } from './services/fetch-utils';
 
-function App() {
+//services
+// **** import { logout } from './services/fetch-utils';
+//***then add to onclick on logout button */
+
+//components
+import HomePage from './components/HomePage';
+import ListPage from './components/ListPage';
+import CreatePage from './components/CreatePage';
+import UpdatePage from './components/UpdatePage';
+
+export default function App() {
+  const [user, setUser] = useState(client.auth.user());
+
+  async function handleLogoutClick() {
+    await logout();
+    setUser('');
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <Router>
+      <header>
+        <nav>
+          <h1>Missed Connections</h1>
+          <ul>
+            <li className="link">
+              <Link to="/list">List Page</Link>
+            </li>
+            <li className="link">
+              <Link to="/create">Create Page</Link>
+            </li>
+            <button onClick={handleLogoutClick}>Logout</button>
+          </ul>
+        </nav>
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route exact path="/">
+            {
+              !user 
+                ? <HomePage setUser={setUser} />
+                : <Redirect to="/list" />
+            }
+          </Route>
+          <Route exact path="/list">
+            {
+              user 
+                ? <ListPage />
+                : <Redirect to="/" />
+            }
+          </Route>
+          <Route exact path="/create">
+            {
+              !user 
+                ? <Redirect to="/" />
+                : <CreatePage />
+            }
+          </Route>
+          <Route exact path="/update/:id">
+            <UpdatePage />
+          </Route>
+        </Switch>
       </header>
-    </div>
+    </Router>
   );
 }
-
-export default App;
