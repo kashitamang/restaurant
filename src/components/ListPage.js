@@ -17,7 +17,6 @@ export default function ListPage() {
 
   return (
     <div className="list">
-      hello from ListPage!
       {
         missedConnections.map((missedConnection, i) => 
           <MissedConnection missedConnection={missedConnection} key={missedConnection.title + i} />

@@ -46,7 +46,19 @@
   color: black;
 }
 
-body nav ul .link {
-  text-decoration: none;
-  color: black;
+#missed-connection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  border: 2px solid black;
+  margin: 20px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
